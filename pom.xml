@@ -5,10 +5,46 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.bluelotussoftware</groupId>
     <artifactId>composite-component-examples</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>war</packaging>
     <name>composite-component-examples</name>
+    <url>https://github.com/bluelotussoftware/composite-component-examples</url>
+    <inceptionYear>2014</inceptionYear>
+    <organization>
+        <name>Blue Lotus Software, LLC.</name>
+        <url>http://www.bluelotussoftware.com</url>
+    </organization>
+    <scm>
+        <connection>scm:git:https://github.com/bluelotussoftware/composite-component-examples.git</connection>
+        <developerConnection>scm:git:https://github.com/bluelotussoftware/composite-component-examples.git</developerConnection>
+        <url>https://github.com/bluelotussoftware/composite-component-examples/tree/master/src</url>
+    </scm>
 
+    <developers>
+        <developer>
+            <id>jyeary</id>
+            <name>John Yeary</name>
+            <email>jyeary@bluelotussoftware.com</email>
+            <organization>Blue Lotus Software, LLC.</organization>
+            <organizationUrl>http://www.bluelotussoftware.com</organizationUrl>
+            <url>http://javaevangelist.blogspot.com</url>
+            <timezone>-6</timezone>
+            <roles>
+                <role>Principal</role>
+                <role>Architect</role>
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers>
+    
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -83,5 +119,5 @@
         </plugins>
     </build>
     <description>A series of composite component examples using various
-techniques.</description>
+        techniques.</description>
 </project>
