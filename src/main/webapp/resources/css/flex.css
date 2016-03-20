@@ -1,0 +1,100 @@
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.master {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;   
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.page-header {
+    /* fixed size */
+    flex: none;
+
+    padding: 15px;
+    font-size: 3em;
+    font-weight: bold;
+    background: #333;
+    color: white;
+}
+
+.page-content { 
+    /* resize in container */
+    flex: 1; 
+
+    /* IMPORTANT for FireFox */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* new flex container for content */
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar-left {   
+    flex: none;
+    background: #838383;
+    padding: 20px;
+    min-width: 150px;
+    overflow: auto;
+    color: white;
+    white-space: nowrap;   
+}
+
+.sidebar-left a {
+    color: white;
+}
+
+.splitter {     
+    flex: none;
+    width: 17px;
+    cursor: col-resize;
+    background: #333;
+    background: url('#{facesContext.externalContext.requestContextPath}/resources/images/vsizegrip.png') center center no-repeat #535353;
+}
+
+.content-container {
+    flex: 1 1 auto;
+    background: #eee;
+    padding: 20px;
+    width: 100%;
+    min-width: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+.main-content {
+    flex: 1 1 auto;
+    width: 100%;
+    padding: 10px;
+    min-width: 300px;
+}
+
+footer {
+    flex: none;
+    background: #333;
+    color: white;
+    padding: 10px;
+}
+
+footer a {
+    color: white;
+}
+
+@media(max-width: 768px) {
+    .page-content {
+        flex-direction: column;
+    }
+    .splitter {
+        display:none;
+    }
+}

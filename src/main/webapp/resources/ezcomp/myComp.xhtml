@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+              xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+              xmlns:h="http://xmlns.jcp.org/jsf/html"
+              xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <!-- INTERFACE -->
+    <cc:interface shortDescription="A component that repeats the &quot;content&quot; facet within a &lt;ui:repeat/&gt;">
+        <cc:attribute name="value" type="java.util.Collection" required="true" 
+                      shortDescription="a collection of objects to iterate over. The var is called _name" />
+        <cc:facet name="content"
+                  shortDescription="facet used inside &lt;ui:repeat/&gt;" />
+    </cc:interface>
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <h:outputScript library="javax.faces" name="jsf.js" target="head"/>
+        <ui:repeat value="#{cc.attrs.value}" var="_name">
+            <!-- the var is assigned to _name, and it is up to the facet 
+            to handle rendering of the output -->
+            <cc:renderFacet name="content"/>
+        </ui:repeat>
+    </cc:implementation>
+</ui:component>

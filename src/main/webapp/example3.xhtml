@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ezcomp="http://xmlns.jcp.org/jsf/composite/ezcomp"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h1>Composite component that renders its children</h1>
+    <p>
+        The <code>&lt;ezcomp:children/&gt;</code> composite component renders included child components.
+    </p>
+    <ezcomp:children>
+        <h:outputText value="A" style="color: yellow; background-color: tomato;"/><br/>
+        <h:outputText value="B" style="color: crimson; background-color: yellow;"/><br/>
+        <h:outputText value="C" style="color: skyblue; background-color: darkorange;"/><br/>
+        <h:outputText value="D" style="color: violet; background-color: bisque;"/><br/>
+    </ezcomp:children>
+</ui:composition>

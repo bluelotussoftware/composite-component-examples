@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ezcomp="http://xmlns.jcp.org/jsf/composite/ezcomp"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Composite Component with <code>&lt;f:facet/&gt;</code></title>
+    </h:head>
+    <h:body>
+        <h1>Composite Component with <code>&lt;f:facet/&gt;</code></h1>
+        <p>The facet is rendered inside the <code>&lt;ezcomp:myComp/&gt;</code> composite component where the <code>&lt;cc:renderFacet name="content"/&gt;</code>
+            is placed.</p>
+        <p>This example displays a list of names which are clickable links. The link will make an AJAX call, and if successful, will return a status code of 
+            200 along with a message.</p>
+        <h:form>
+            <ezcomp:myComp value="#{bean.names}">
+                <!--
+                This facet is rendered inside the composite component where the <cc:renderFacet name="content"/>
+                is placed.
+                -->
+                <f:facet name="content">
+                    <h:commandLink value="#{_name}" action="#{bean.sayHello()}">
+                        <!-- Store the _name value as a parameter to use later -->
+                        <f:param name="name_" value="#{_name}"/>
+                        <f:ajax execute="@this"/>
+                    </h:commandLink>
+                    <br/>
+                </f:facet>
+            </ezcomp:myComp>
+            <br/>
+            <h:button outcome="index" value="Home"/>
+            <script type="text/javascript">
+                //<![CDATA[
+                /**
+                 * This function returns the named cookie if it exists.
+                 * @param {type} cname The name of the cookie.
+                 * @returns {String} The cookie value.
+                 */
+                function getCookie(cname) {
+                    var name = cname + "=";
+                    var ca = document.cookie.split(';');
+                    for (var i = 0; i < ca.length; i++) {
+                        var c = ca[i];
+                        while (c.charAt(0) === ' ') {
+                            c = c.substring(1);
+                        }
+                        if (c.indexOf(name) === 0) {
+                            return c.substring(name.length, c.length);
+                        }
+                    }
+                    return "";
+                }
+                //]]>
+                function handleAjax(data) {
+                    var status = data.status;
+
+                    switch (status) {
+                        case "begin":
+                            // This is the start of the AJAX request.
+                            break;
+
+                        case "complete":
+                            // This is invoked right after AJAX response is returned.
+                            break;
+
+                        case "success":
+                            // This is invoked right after successful processing of AJAX response and update of HTML DOM.
+                            var s = getCookie('_cookieName');
+                            alert("The AJAX responseCode was:  " + data.responseCode + "\nThe message: Hello " + s);
+                            break;
+                    }
+                }
+                // Setup the statusUpdate function to hear all events on the page
+                jsf.ajax.addOnEvent(handleAjax);
+            </script>
+        </h:form>
+    </h:body>
+</html>

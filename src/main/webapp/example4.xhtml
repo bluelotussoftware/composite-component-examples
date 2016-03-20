@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ezcomp="http://xmlns.jcp.org/jsf/composite/ezcomp"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h1>Composite <code>&lt;h:dataTable/&gt;</code> with header <code>&lt;f:facet/&gt;</code></h1>
+    <ezcomp:table value="#{bean.widgets}">
+        <f:facet name="header">
+            <h:outputText value="#{cc.attrs.value.get(0).type}"/>
+        </f:facet>
+    </ezcomp:table>
+</ui:composition>
