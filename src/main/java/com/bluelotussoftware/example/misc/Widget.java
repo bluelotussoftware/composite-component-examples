@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2016 Blue Lotus Software, LLC.
+ * Copyright 2014-2025 Blue Lotus Software, LLC.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ import java.io.Serializable;
 /**
  *
  * @author John Yeary <john.yeary@infor.com>
- * @version 1.0
+ * @version 1.0.1
  */
 public class Widget implements Serializable {
 
